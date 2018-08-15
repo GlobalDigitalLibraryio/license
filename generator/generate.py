@@ -31,7 +31,7 @@ object LicenseList {
     def isOsiApproved: Boolean
   }
 
-  case class SpdxLicenseVal(licenseId: String, name: String, reference: String, isDeprecatedLicenseId: Boolean, isFsfLibre: Boolean, detailsUrl: String, referenceNumber: String, seeAlso: Seq[String], isOsiApproved: Boolean) extends SpdxLicense
+  private[this] case class SpdxLicenseVal(licenseId: String, name: String, reference: String, isDeprecatedLicenseId: Boolean, isFsfLibre: Boolean, detailsUrl: String, referenceNumber: String, seeAlso: Seq[String], isOsiApproved: Boolean) extends SpdxLicense
 
   val licenses = Seq(
     %SPDX_DEF%
@@ -71,7 +71,7 @@ def create_spdx(template):
 
         isOsiApproved = license["isOsiApproved"]
 
-        lines.append(u'SpdxLicenseVal("{}", """{}""", "{}", isDeprecatedLicenseId = {}, isFsfLibre = {}, "{}", "{}", {}, isOsiApproved = {})'.format(
+        lines.append(u'License(SpdxLicenseVal("{}", """{}""", "{}", isDeprecatedLicenseId = {}, isFsfLibre = {}, "{}", "{}", {}, isOsiApproved = {}))'.format(
             licenseId,
             name,
             reference,

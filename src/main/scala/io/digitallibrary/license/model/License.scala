@@ -22,7 +22,7 @@ class LicenseNotSupportedException(message: String) extends RuntimeException(mes
 
 object License {
   def apply(licenseIdentifier: String): License = {
-    LicenseList.licenses.find(_.licenseId.equalsIgnoreCase(licenseIdentifier)).map(License(_))
+    LicenseList.licenses.find(_.id.equalsIgnoreCase(licenseIdentifier))
       .getOrElse(
         throw new LicenseNotSupportedException(s"The license $licenseIdentifier is not a valid license."))
   }
