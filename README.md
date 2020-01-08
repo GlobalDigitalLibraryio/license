@@ -17,23 +17,30 @@ Example:
        def doSomeLicenseHandling = {
           val license1 = License("CC-BY-4.0")
           val license2 = License("Apache-2.0")
-          
-          
+
+
           println(license1)
           println(license1.description)
           println(license2)
           println(license2.description)
-          
+
        }
     }
-    
+
 Output from the above println
 
     CC-BY-4.0
     Creative Commons Attribution 4.0 International
     Apache-2.0
     Apache License 2.0
- 
+
+# Scripts
+
+We have two scripts to generate licenses in this library
+
+1. ./generator/generate.py is a script to update the licenses library in the Scala module
+
+2. ./generator/generate_py_license.py is a script to generate licenses as a python dict to use in python applications
 
 # Building and distribution
 
