@@ -45,14 +45,16 @@ def create_spdx(template):
     license_dict = {}
     for license in licenses:
         name = license["name"]
-        detailsUrl = license["detailsUrl"]
         licenseId = license["licenseId"]
+        if len(license["seeAlso"]) == 0:
+            continue
+        url = license["seeAlso"][0]
 
 
         license_dict[licenseId.lower()] = {
             "name": licenseId,
             "description": name,
-            "url": detailsUrl
+            "url": url
         }
         
 
